@@ -1,0 +1,48 @@
+url-pattern
+- servlet, filter에서 사용되는 url 패턴 작성법
+- some/servlet  : 특정 servlet 지정 방법									우선순위 1
+- some/* 	    : 디렉토리 기반으로 지정하는 방법 / some 아래의 모든 요청	우선순위 2
+- *.do		    : 확장자 기반의 접근 방식									우선순위 3
+
+front controller pattern
+- 지나치게 많은 서블릿 -> 서버 입장에서 관리 어려움
+ - 일반적으로 2가지 형태의 url 사용 : 할일.do, ~~~? action = 할일
+ - 앞단에 하나의 서블릿만 두고 길잡이로 사용 -> 별도의 controller 에게 작업 위임
+ 
+ 예외처리
+ - 에러 페이지 연결 방식 (톰캣이 예외 상황을 알 때 연결)
+  - page directive : errorPage, isErrorPage 	우선순위 1
+  - web.xml에 exception-type 등록				우선순위 2
+  - web.xml에 error-code 등록					우선순위 3 <-- 추천
+  - tomcat /브라우저의 기본 에러 페이지 이용 	우선순위 4
+ - 톰캣에 예외 전달 방신ㄱ
+  - runtime exception -> 자동 전파
+  - checked exception
+  	- response.sendError(404);
+  	- service()의 throws ServletException() 이용
+  		전달할 예외를 ServletException으로 감싸서 전파
+  		
+ - 자주 사용되는 상태 코드
+   - 2XX : 정상인 경우
+   - 3XX : redirect 되는 경우
+   - 4XX : 클라이언트쪽 요청이 잘못된 경우
+   	- 404 : 없는 자료 요청
+   	- 405 : 호출 method가 맞지 않는 경우(get --> post)
+   - 500 : 서버 프로그램 오류
+   
+el
+- expression language : 무언가를 출력하는 표현식
+  ${출력_ 대상}
+- vs expression tag(<%=출력 대상 %>)
+  el의 출력 대상은 주로 attribute, expression_tag의 출력 대상(모두)
+  el의 주로 jstl과 함께 사용되며 표현식을 간단히 작성
+- emtpy
+  el은 값이 없을 경우 null을 출력하지 않음
+  공백 값이 있는지 아니면 아예 없는지 판단하는 연산자
+
+
+jstl
+- java standard tag library
+- jsp를 좀 더 jsp 답게 -> script 요소를 대체하는 것이 목표
+  
+  

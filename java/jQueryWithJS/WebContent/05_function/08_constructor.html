@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+	"use strict";
+	let hong = {
+		name : "홍길동",
+		age : 30,
+		info : function() {
+			return this.name + ", " + this.age;
+		}
+	};
+
+	console.log(hong.info());
+
+	function Person(name, age) {
+		this.name = name;
+		this.age = age;
+		this.info = function() {
+			return this.name + " : " + this.age;
+		};
+	}
+
+	let jang = new Person("장길산", 20);
+	console.log(jang.info());
+	let lim = new Person("임꺽정", 25);
+	console.log(lim.info());
+	
+	// TODO: title, price를 저장할 수 있는 생성자 함수 Book을 작성하시오.
+	// @@ 이 생성자를 이용해서 3개의 Book 객체를 배열에 저장하고 배열을 가격의 오름 차순으로 정렬해서 출력하시오.
+	// END:
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action ="regist" method = "post" id = "regForm">
+	<input type = "text" name ="userid" id ="userid"placeholder="사용자 아이디"> <br>
+	<input type = "text" name ="name"id ="name" placeholder="사용자 이름"> <br>
+	<input type = "password" name ="pass" id ="pass" placeholder="사용자 비밀번호"> <br>
+	<input type = "number" name ="balance" id ="balance"placeholder="잔액"> <br>
+	<input type = "submit">
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$("#regForm").on("submit",function(e){
+	//form 전송 전 validation 체크
+	let userid = $("#userid").val();
+	let name = $("#name").val();
+	let pass = $("#pass").val();
+	if(userid && name && pass){
+		console.log(userid + " : " + name + " : " + pass );
+	}else{
+		e.preventDefault();
+		alert("아이디, 이름, 비밀번호는 필수 항목 입니다.");
+	}
+})
+
+</script>
+</html>

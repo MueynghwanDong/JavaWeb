@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+	"use strict";
+	function getMinMax(...nums) {
+		return [Math.max(...nums), Math.min(...nums)];
+	}
+	
+	let result = getMinMax(1, -10, 5, 7, -4, 10);
+	let max = result[0];
+	let min = result[1];
+	console.log(result, max, min);
+	
+	
+	let [min2, max2] = getMinMax(1, -10, 5, 7, -4, 10);
+	console.log(min2, max2);
+	
+
+</script>
+
+</html>

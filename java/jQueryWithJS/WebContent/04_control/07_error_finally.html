@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function init() {
+        console.log("스토리지에 정보를 추가합니다.");
+    }
+
+    function destroy() {
+        console.log("스토리지에서 정보를 제거합니다.");
+    }
+
+    function use() {
+        console.log("스토리지 사용 시작..");
+        if (Math.random() > 0.5) {
+            throw new Error("너무 큰 랜덤 값..");
+        }
+        console.log("스토리지 사용 종료");
+    }
+
+    function useStorage() {
+    	// TODO: 예외 발생 여부와 상관 없이 언제나 스토리지 정보가 제거되도록 아래 코드를 수정하시오.
+        // @@ init();
+    	// @@ use();
+    	// @@ destroy();
+        // END:
+    }
+    useStorage();
+</script>
+
+</html>

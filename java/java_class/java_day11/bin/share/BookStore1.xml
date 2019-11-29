@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<BookStore xmlns ="http://www.books.org"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.books.org BookStore1.xsd">
+        <!-- TODO: 사용하는 xsd에 적절한 Book element를 선언하시오. -->
+        <Book>
+        	<Title>자바완전정복</Title>
+        	<Author>홍길동</Author>
+        	<Date>2019.08.06</Date>
+        	<ISBN>12345678</ISBN>
+        	<Publisher>가메출판사</Publisher>
+        </Book>
+        <!-- END: -->
+</BookStore>

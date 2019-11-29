@@ -1,0 +1,4 @@
+SqlSessionFactoryBuilder -> xml 파싱
+SqlSessionFactory -> db서버에 접속, sql 세션을 생성
+SqlSession : Connection, Statement
+-> 트랜잭션 처리, 쿼리 실행

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mapper.historymapper">
+<!-- 	<select id="selectByMap" parameterType="int" resultType="map"> -->
+	<select id="selectByMap" parameterType="int" resultMap="historyDefault">
+		select * from history where history_no = #{historyNo}
+	</select>
+	<select id="selectByBean" parameterType="int"
+		resultType="history">
+		select * from history where history_no = #{historyNo}
+	</select>
+	<select id="selectByAll" resultType="history">
+		select * from history
+	</select>
+<!-- resultMap 활용 : 컬림 이름이 naming rule에 벗어나거나 다른 이름을 사용할 때 -->
+<resultMap type="history" id="historyDefault">
+<id column="history_no" property = "historyNo"/>
+<result column ="userid" property="userId"/>
+<result column ="type" property="type"/>
+<result column ="balance" property="balance"/>
+<result column ="event_time" property="eventTime"/>
+
+</resultMap>
+
+</mapper>

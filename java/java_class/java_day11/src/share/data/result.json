@@ -1,0 +1,53 @@
+{
+  "checkList": {
+    "check": [
+      {
+        "code": "1000",
+        "date": "2010.10.01",
+        "clean": "H",
+        "ready": "H",
+        "response": "M"
+      },
+      {
+        "code": "1001",
+        "date": "2010.10.02",
+        "clean": "H",
+        "ready": "H",
+        "response": "M",
+        "request": "air clean!!"
+      },
+      {
+        "code": "1002",
+        "date": "2010.10.03",
+        "clean": "H",
+        "ready": "H",
+        "response": "M",
+        "request": "air clean2!!"
+      },
+      {
+        "code": "1003",
+        "date": "2010.10.01",
+        "clean": "H",
+        "ready": "H",
+        "response": "M",
+        "request": "aaaaa"
+      },
+      {
+        "code": "1004",
+        "date": "2010.10.02",
+        "clean": "H",
+        "ready": "H",
+        "response": "M",
+        "request": "cccccc"
+      },
+      {
+        "code": "1005",
+        "date": "2010.10.03",
+        "clean": "H",
+        "ready": "H",
+        "response": "M",
+        "request": "bbbbb"
+      }
+    ]
+  }
+}

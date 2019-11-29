@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+	"use strict";
+	function sayHi(name) {
+		console.log("Hi " + name);
+	}
+
+	console.log(typeof sayHi, sayHi instanceof Object);
+
+	sayHi("hong");
+
+	let sayHi2 = sayHi;
+	sayHi2("lim");
+
+	function paramFunc(someFunc, name) {
+		someFunc(name);
+	}
+	paramFunc(sayHi, "jang");
+
+	function sayHiChi(name) {
+		console.log("您好 " + name);
+	}
+	
+	function sayHiKor(name) {
+		console.log("안녕 " + name);
+	}
+	
+	// TODO: 필요에 따라 영어, 중국어, 한국어로 인사를 처리할 수 있도록 sayHello 함수를 작성하시오.
+	// @@ 단 위에서 작성된 sayHi 계열의 함수를 사용한다.
+	// END:
+</script>
+
+</html>

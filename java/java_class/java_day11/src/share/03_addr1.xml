@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE 주소록 [
+<!ENTITY myemail "abc@def.net">
+<!ELEMENT 주소록 ( 정보 )*>
+<!ELEMENT 정보 ( 이름, email, 휴대전화 )>
+<!ATTLIST 정보 학번 ID #REQUIRED>
+<!ELEMENT 이름 ( #PCDATA )>
+<!ELEMENT email ( #PCDATA )>
+<!ELEMENT 휴대전화 ( #PCDATA )>
+]>
+<!-- TODO: 위 DTD를 참조하여 두 개 이상의 하위 element를 갖는 주소록을 생성하시오. -->
+<주소록>
+	<정보 학번="2011722006">
+		<이름>문요한</이름>
+		<email>&myemail;</email>
+		<휴대전화>01034897209</휴대전화>
+	</정보>
+	
+	<정보 학번="2011722013">
+		<이름>김종엽</이름>
+		<email>yeop91@gmail.com</email>
+		<휴대전화>01012345678</휴대전화>
+	</정보>
+</주소록>
+
+
+
+<!-- END: -->

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkList>
+	<check code="1000" date="2010.10.01">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request></request>
+	</check>
+	<check code="1001" date="2010.10.02">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request>air clean!!</request>
+	</check>
+	<check code="1002" date="2010.10.03">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request>air clean2!!</request>
+	</check>
+	<check code="1003" date="2010.10.01">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request>aaaaa</request>
+	</check>
+	<check code="1004" date="2010.10.02">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request>cccccc</request>
+	</check>
+	<check code="1005" date="2010.10.03">
+		<clean>H</clean>
+		<ready>H</ready>
+		<response>M</response>
+		<request>bbbbb</request>
+	</check>
+</checkList>
