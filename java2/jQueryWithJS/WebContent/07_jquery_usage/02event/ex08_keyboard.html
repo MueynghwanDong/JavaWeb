@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+label {
+	display: inline-block;
+	width: 10em;
+}
+</style>
+</head>
+<body>
+	<label for="user_name">사용자명</label>
+	<input type="text" id="user_name">
+	<br>
+	<label for="user_id">사용자 아이디(3글자)</label>
+	<input type="text" id="user_id">
+	<br>
+	<label for="user_pass">사용자 비번(3글자)</label>
+	<input type="password" id="user_pass">
+	<br> 남은 글자 수 :
+	<span id="remained"></span>
+	<hr>
+	<input type="text" id="ssn1">
+	-
+	<input type="text" id="ssn2">
+	<button id="send">전송</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function printRemainded(eventSource) {
+		var length = $(eventSource).val().length;
+		$("#remained").text(3 - length);
+	}
+
+	$("#user_name").on("keypress", function(e) {
+		console.log("key press : keyCode:" + e.keyCode + ", key: " + e.key + ", code: " + e.originalEvent.code);
+	});
+
+	// TODO: #user_id에서 발생하는 keydown 이벤트를 처리해서 키의 정보를 출력하고 printRemainded 함수를 호출하시오.
+	// END:
+
+	// TODO: #user_pass에서 발생하는 keyup 이벤트를 처리해서 키의 정보를 출력하고 printRemainded 함수를 호출하시오.	
+	// END:
+
+	// TODO: #ssn1의 글자 길이가 6이 되면 #ssn2로 포커스를 이동시키시오.
+	// @@ssn2에서 엔터키가 들어오면 전송 버튼을 클릭하시오.
+	// END:
+</script>
+</html>

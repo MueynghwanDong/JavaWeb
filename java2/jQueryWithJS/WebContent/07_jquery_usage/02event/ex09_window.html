@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#if {
+	width: 95%;
+	height: 300px;
+}
+</style>
+</head>
+<body>
+	<button id="problemB">문제버튼</button>
+	<div id="status">
+		<p>document ready</p>
+	</div>
+	<iframe id="if" src="../01dom/ex01_modcontent.html"></iframe>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	// log를 출력하면서 문제가 발생한다. --> error 이벤트
+	$("#problemB").on("click", function() {
+		console.log(sdfsdfsf); // jshint ignore:line
+	});
+
+	// TODO: if의 load가 완료되면 status의 배경을 파랑으로 변경하시오.
+	// END:
+
+	// TODO: window에서 error 가 발생하면 관련 내용을 alert으로 출력하시오.
+	// END:
+
+	// TODO: window의 scroll 이벤트를 이용해 무한 스크롤을 구현하시오.
+	// @@ 추가할 내용은 기존의 iframe을 복제해서 사용한다.
+	// END:
+</script>
+</html>

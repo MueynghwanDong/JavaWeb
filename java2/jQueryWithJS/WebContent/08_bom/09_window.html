@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window object</title>
+
+</head>
+<body>
+	<button onclick="newWindowOpen()">새창열기</button>
+	<button onclick="closeChildWindow()">새창닫기</button>
+	<br>
+	<button onclick="askQuestion()">Prompt</button>
+	<button onclick="areUSure()">Confirm</button>
+	<br>
+	<button onclick="startChange()">change</button>
+	<button onclick="stopChange()">stop change</button>
+
+	<hr>
+	이번 인사말은 :
+	<div id="time"></div>
+	<hr>
+	<button onclick="setBoom()">Boom</button>
+	<button onclick="cancelBoom()">cancel</button>
+	<button onclick="moveTo()">move to google</button>
+</body>
+<script>
+	let child;
+	// TODO: 새창열기가 클릭될 때 google.com을 새 창에서 여시오. 단 해당 창의 레퍼런스를 child에 할당하시오.
+	// END:
+
+	// TODO: 새창닫기가 클릭될 때 위에서 연 창을 닫으시오.
+	// END:
+
+	// TODO: Prompt가 클릭될 때 prompt로 구구단 문제를 내고 입력값이 맞는지 다시 alert으로 출력하시오.
+	// END:
+
+	// TODO: Confirm 이 클릭될 때 yes/no로 답할 질문을 출력하고 사용자의 결정을 출력하시오.
+	// END:
+
+	let greetings = [ "Good morning", "Good afternoon", "Good evening", "Good Night" ];
+
+	let repeat;
+	// TODO: change가 클릭될 때 1초에 한번 씩 greetings의 내용이 변경되도록 처리하시오. 단 interval id는 repeat에 할당한다.
+	// END:
+
+	// TODO: stop change가 클릭될 때 위에서 설정한 주기 작업이 종료되도록 처리하시오.
+	// END:
+	let boom;
+
+	// TODO: Boom이 클릭될 때 5초 후 alert을 출력하시오. 이때 timeout id는 boom에 할당한다.
+	// END:
+
+	// TODO: cancel을 클릭하면 위의 timeout 작업을 취소시키시오.
+	// END:
+
+	// TODO: move to google이 클릭되면 id가 time인 요소에 카운트다운을 5부터 출력하고 5초 후 google.com으로 이동하시오.
+	// @@ 단 페이지 이동 시 location.href="http://www.google.com" 을 이용한다.
+	// END:
+</script>
+</html>

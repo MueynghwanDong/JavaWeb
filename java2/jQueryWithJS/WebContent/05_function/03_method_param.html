@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+	"use strict";
+	function minus(a, b) {
+		console.log(arguments, Array.isArray(arguments));
+		for ( let param in arguments) {
+			console.log(param, arguments[param]);
+		}
+		return a - b;
+	}
+	console.log(minus(1, 2));
+	console.log(minus(1, 2, 3));
+	console.log(minus(1));
+
+	// TODO: 아무리 많은 개수의 숫자라도 더해서 리턴할 수 있도록 plus 함수를 구현하시오.
+	// END:
+	
+	function required(){
+		throw new Error("필수 입력 항목입니다.");
+	}
+	
+	function useRequired(name=required()){
+		console.log(name+"님 반갑습니다.");
+	}
+	
+	useRequired("홍길동");
+	
+	try{
+		useRequired();
+	}catch(e){
+		console.log(e);
+	}
+	
+	// TODO: 두 개의 숫자를 파라미터로 받는 multiply 함수를 만든다. 
+	// @@ 단 첫 번째 파라미터는 필수이며 두 번째 파라미터가 없으면 첫 번째 값으로 대체한다.
+	// END:
+		
+
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>지원서 작성</title>
+<style>
+#career {
+	display: none;
+}
+</style>
+</head>
+<body onload="init()">
+	<b>지원서 작성</b>
+	<form action="#" onsubmit="return formCheck();">
+		<fieldset>
+			<legend>기본지원사항</legend>
+			<ul>
+				<li>응시분야 <select>
+						<option>Consulting</option>
+						<option>IoT</option>
+						<option>빅데이터</option>
+						<option>R&amp;D</option>
+				</select> <select onchange="staff(this)">
+						<option>Staff</option>
+						<option>신입</option>
+						<option>경력</option>
+				</select>
+				<li>졸업여부 <input type="radio" name="graduate" id="ok"> <label for="ok">졸업</label> <input type="radio" name="graduate" id="ny"> <label for="ny">졸업예정</label>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>기본인적사항( *는 필수사항)</legend>
+			<ul>
+				<li>*성명 <input type="text" name="username" id="username"></input>
+				<li>*국적 <input type="text" name="nationality" id="nationality"></input>
+				<li>*이메일 <input type="email" name="email" id="email"></input>
+				<li>*휴대전화 <input type="text" name="phone" id="phone" />
+			</ul>
+		</fieldset>
+
+		<fieldset id="career">
+			<legend>경력사항</legend>
+			<ul>
+				<li>*경력회사명 <input type="text" name="career" id="careerCompany" />
+				<li>*근무년수<input type="text" name="serviceYear" id="serviceYear" maxlength="2"></input>
+			</ul>
+		</fieldset>
+
+		<fieldset>
+			<legend>어학사항</legend>
+			<ul>
+				<li>어학구분 <select>
+						<option>영어</option>
+						<option>중국어</option>
+						<option>불어</option>
+						<option>일본어</option>
+				</select>
+				<li>어학시험명 <input type="text"></input>
+				<li>점수<input type="text"></input>
+			</ul>
+		</fieldset>
+		<input type="submit" value="지원하기"></input>
+		<input type="reset" value="다시작성하기"></input>
+	</form>
+</body>
+<script>
+    // jshint esversion:6
+    // TODO: 다음 요청 사항을 만족시키는 애플리케이션을 작성하시오.
+    // @@ 응시분야는 빅데이터, 졸업 여부는 졸업을 초기 값으로 설정한다.
+    // @@ 경력 사항은 staff 항목이 경력을 선택했을 때에만 보여준다.
+    // @@ 입력값 앞에 * 가 붙은 항목은 필수 입력이므로 값을 입력하지 않고 지원하기를 클릭하면 alert으로 값이 없음을 알려주고 alert을 닫으면 해당 input으로 focus를 이동시킨다.
+    // END:
+</script>
+</html>
