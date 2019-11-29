@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.mapper.BoardMapper">
+
+	<insert id="create">
+		insert into board (title, content, writer,regdate,viewcnt)
+		values(#{title},#{content}, #{writer}, now(),0)
+	</insert>
+
+	<select id="read" resultType="Board">
+		select
+		bno, title, content, writer,
+		regdate, viewcnt
+		from
+		board
+		where bno = #{bno}
+	</select>
+
+	<update id="update">
+		update board set title =#{title}, content =#{content}, viewcnt =#{viewcnt}
+		where bno = #{bno}
+	</update>
+	
+	<update id="bupdate">
+		update board set title =#{title}, content =#{content}
+		where bno = #{bno}
+	</update>
+
+	<delete id="delete">
+		delete from board where bno = #{bno}
+	</delete>
+
+	<select id="listAll" resultType="Board">
+ <![CDATA[
+ select 
+     bno, title, content, writer, regdate, viewcnt 
+ from 
+   board 
+ where bno > 0 
+ order by bno asc
+ ]]>
+	</select>
+
+
+	<select id="listPage" resultType="Board">
+ <![CDATA[
+ select 
+   bno, title, content, writer, regdate, viewcnt 
+ from 
+   board 
+ where bno > 0 
+ order by bno desc, regdate desc
+ limit #{page}, 10
+ ]]>
+	</select>
+
+	<select id="listCriteria" resultType="Board">
+ <![CDATA[
+ select 
+   bno, title, content, writer, regdate, viewcnt, replycnt 
+ from 
+   board 
+ where bno > 0 
+ order by bno desc, regdate desc
+ limit #{pageStart}, #{perPageNum}
+ ]]>
+	</select>
+
+
+
+	<select id="countPaging" resultType="int">
+ <![CDATA[
+ select 
+   count(bno) 
+ from 
+   board 
+ where 
+   bno > 0 
+ ]]>
+	</select>
+
+
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%', #{keyword}, '%')
+			</if>
+		</if>
+	</sql>
+
+	<select id="listSearch" resultType="Board">
+<![CDATA[  
+  select * 
+  from board 
+  where bno > 0 
+]]>
+
+		<include refid="search"></include>
+  
+<![CDATA[    
+  order by bno desc
+  limit #{pageStart}, #{perPageNum}
+]]>
+	</select>
+
+	<select id="listSearchCount" resultType="int">
+<![CDATA[  
+  select count(bno) 
+  from board 
+  where bno > 0 
+]]>
+		<include refid="search"></include>
+
+	</select>
+
+	<update id="updateViewCnt">
+		update board set viewcnt = viewcnt +1 where bno = #{bno}
+	</update>
+
+
+</mapper>

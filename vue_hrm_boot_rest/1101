@@ -1,0 +1,9 @@
+1. boot application  작성
+2. jdbc --> dataSource 설정
+ - logging / server path, port /
+3. swagger 설정 --> 관련 빈 설정\
+4. http://localhost:8197/ssafyvue/swagger-ui.html 테스트
+5. 빈 설정 확인 단위 테스트
+6. dto 확인 --> mybatis-config에 등록하기
+7. mapper 작성 -> daoimpl -> 단위 테스트 -> service imple
+-> controller --> swaager test

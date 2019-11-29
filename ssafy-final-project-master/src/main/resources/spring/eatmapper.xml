@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mapper.EatMapper">
+
+	<select id="select" resultType="eat" parameterType="string">
+		select * from eat where id = #{id}
+	</select>
+	<insert id="insert" parameterType="eat">
+		insert into eat(id,code,amount,foodname,eatday)
+		values(#{id},#{code},#{amount},#{foodname},now())
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from eat where idx = #{idx}
+	</delete>
+
+	<resultMap type="eat" id="eatDefault">
+		<id column="idx" property="idx" />
+		<result column="id" property="id" />
+		<result column="code" property="code" />
+		<result column="amount" property="amount" />
+		<result column="foodname" property="foodname" />
+		<result column="eatday" property="eatday" />
+	</resultMap>
+</mapper>

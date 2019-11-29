@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.edu.vue.dao.HrmMapper">
+
+	<select id="findAllEmployees" resultType="emp">
+		select * from s_emp
+		order by id
+	</select>
+	<select id="getEmployeesTotal" resultType="int">
+		select count(*) from
+		s_emp
+	</select>
+	<select id="findLikeEmployees" resultType="emp"
+		parameterType="string">
+		select * from s_emp where name like
+		concat('%',#{name},'%') order by id
+	</select>
+	<select id="findEmployeeById" resultType="emp"
+		parameterType="int">
+		select * from s_emp where id = #{id}
+	</select>
+	<select id="findAllTitles" resultType="emp">
+		select distinct title from
+		s_emp
+	</select>
+	<select id="findAllDepartments" resultType="dept">
+		select * from s_dept
+	</select>
+
+	<select id="findEmployeesByManagerId" resultType="emp"
+		parameterType="int">
+		select * from s_emp where manager_id = #{manager_id}
+	</select>
+
+	<insert id="addEmployee" parameterType="emp"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		s_emp(name,mailid,start_date,manager_id,title,dept_id,salary,commission_pct)
+		values (#{name}, #{mailid},
+		#{start_date},#{manager_id},#{title},#{dept_id},#{salary},#{commission_pct})
+	</insert>
+
+	<delete id="deleteEmployee" parameterType="int">
+		delete from s_emp
+		where id =#{id}
+	</delete>
+	<update id="updateEmployee" parameterType="emp">
+		update s_emp set name
+		= #{name}, mailid= #{mailid}, start_data = #{start_date}, manager_id =
+		#{manager_id}, title = #{title},dept_id = #{dept_id}, salary =
+		#{salary},commission_pct = #{commission_pct} where id = #{id}
+	</update>
+
+	<select id="findDepartmentsBydeptid" parameterType="int"
+		resultType="emp">
+		select * from s_emp where dept_id = #{dept_id}
+	</select>
+
+	<select id="findDepartmentsByname" parameterType="string"
+		resultType="emp">
+		<!-- select * from s_emp where dept_id = (select dept_id from s_dept where 
+			name = #{name}); </select> -->
+		select e.* from s_emp e join s_dept d using(dept_id) where d.name =
+		#{name};
+	</select>
+	
+	<select id="findDepartmentsByname2" parameterType="string"
+		resultType="emp">
+		select e.* from s_emp e where dept_id = (select e.dept_id from s_emp e join s_dept d using(dept_id) where e.name like concat('%',#{name},'%')); 
+	</select>
+
+	<select id="findAllDeptEmps" resultType="deptEmp">
+		select e.id as eid, e.name as ename, e.mailid as emailid, e.dept_id as
+		deptid, d.name as dname from s_emp e join s_dept d using(dept_id)
+		order by e.dept_id;
+	</select>
+	
+	<select id="findAllDepCounts" resultType="deptCount">
+		select e.dept_id as dept_id, d.name as name, count(e.dept_id) as count from s_emp e join s_dept d using(dept_id) group by e.dept_id order by count desc, e.dept_id ;
+	</select>
+
+</mapper>

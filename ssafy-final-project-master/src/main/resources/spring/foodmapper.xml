@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mapper.FoodMapper">
+	<!-- updateClick -->
+	<!-- insertFood -->
+	<!-- foodCount -->
+	<!-- searchAllBean -->
+	<!-- searchAll -->
+	<!-- search -->
+
+	<update id="sfreq" parameterType="food">
+		update food set sfreq =#{sfreq}
+		where code =#{code}
+	</update>
+
+	<select id="best" resultType="food">
+		select * from food order by sfreq desc limit 5
+<!-- 		select * from food where sfreq>0 order by sfreq desc limit 5 -->
+	</select>
+
+
+	<update id="updateClick" parameterType="food">
+		update food set frequency
+		= #{frequency} where code = #{code};
+	</update>
+
+	<insert id="insertFood" parameterType="food">
+		insert into food
+		values(#{code},#{name},#{supportpereat},#{calory},#{carbo},#{protein},#{fat},#{sugar},#{natrium},#{chole},#{fattyacid},#{transfat},#{maker},#{material},#{img},#{allergy},
+		0, #{sfreq));
+	</insert>
+
+	<select id="foodCount" parameterType="bean" resultType="int">
+		<!-- all, name, maker, material -->
+
+		<choose>
+			<when test="key.equals('name')">
+				select count(*) from food where name like CONCAT('%',
+				#{word}, '%');
+			</when>
+			<when test="key.equals('maker')">
+				select count(*) from food where maker like
+				CONCAT('%', #{word}, '%');
+			</when>
+			<when test="key.equals('material')">
+				select count(*) from food where material like
+				CONCAT('%', #{word}, '%');
+			</when>
+			<otherwise>
+				select count(*) from food where name like CONCAT('%',
+				#{word}, '%') or maker like CONCAT('%', #{word}, '%') or material
+				like CONCAT('%', #{word}, '%');
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="searchAll" resultType="food">
+		select * from food;
+	</select>
+
+	<select id="searchAllBean" parameterType="bean"
+		resultType="food">
+		<!-- all, name, maker, material -->
+		<choose>
+			<when test="key.equals('name')">
+				select * from food where name like CONCAT('%',
+				#{word}, '%');
+			</when>
+			<when test="key.equals('maker')">
+				select * from food where maker like CONCAT('%',
+				#{word}, '%');
+			</when>
+			<when test="key.equals('material')">
+				select * from food where material like CONCAT('%',
+				#{word}, '%');
+			</when>
+			<otherwise>
+				select * from food where name like CONCAT('%', #{word},
+				'%') or maker like CONCAT('%', #{word}, '%') or material like
+				CONCAT('%', #{word}, '%');
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="search" parameterType="int" resultType="food">
+		select * from
+		food where code = #{code};
+	</select>
+	<select id="viewsearch" resultType="food">
+		select * from food order by
+		frequency desc
+	</select>
+
+	<insert id="insertEat" parameterType="eat">
+		insert into eat values
+		(#{id}, #{code}, #{amount}, #{foodname});
+	</insert>
+
+	<resultMap type="food" id="foodDefault">
+		<id column="code" property="code" />
+		<result column="name" property="name" />
+		<result column="supportpereat" property="supportpereat" />
+		<result column="calory" property="calory" />
+		<result column="carbo" property="carbo" />
+		<result column="protein" property="protein" />
+		<result column="fat" property="fat" />
+		<result column="sugar" property="sugar" />
+		<result column="natrium" property="natrium" />
+		<result column="chole" property="chole" />
+		<result column="fattyacid" property="fattyacid" />
+		<result column="transfat" property="transfat" />
+		<result column="maker" property="maker" />
+		<result column="material" property="material" />
+		<result column="img" property="img" />
+		<result column="allergy" property="allergy" />
+		<result column="frequency" property="frequency" />
+		<result column="sfreq" property="sfreq" />
+	</resultMap>
+
+</mapper>
