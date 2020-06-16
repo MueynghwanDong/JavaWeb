@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<BookStore xmlns="http://www.books.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.books.org
-                                                          BookStore_att.xsd">
-	<!-- TODO: 주어진 XSD에 적합한 xml 태그를 작성하시오. -->
-	<!-- END: -->
-</BookStore>
